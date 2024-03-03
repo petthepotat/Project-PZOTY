@@ -1,0 +1,26 @@
+
+
+.list-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.listing {
+    display: inline-block;
+    position: relative;
+}
+
+.listing-header {
+    display: block;
+}
+
+.listing-description {
+    display: block;
+}
+
+.listing-image {
+    border-radius: 10px;
+    max-width: 200px;
+}
+

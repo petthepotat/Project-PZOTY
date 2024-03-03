@@ -1,0 +1,35 @@
+.App {
+  text-align: center;
+}
+
+.container {
+  margin: 30px;
+}
+
+.App-header {
+  background-color: white;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(2px + 2vmin);
+  color: black;
+}
+
+.upload-button{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #ffffff 30%, #c7ecff 90%);
+  border: solid;
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}

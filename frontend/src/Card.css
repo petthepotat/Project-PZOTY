@@ -1,0 +1,20 @@
+
+
+
+
+.card {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 50px;
+    display: flex;
+    min-width: 300px;
+    max-width: 1000px;
+    width: 80%;
+    border-style: solid;
+}
+
+@media screen and (max-width: 500px) {
+    .card {
+        min-width: 300px;
+    }
+}
