@@ -19,6 +19,6 @@ Project-PZOTY has the following Tech Stack
 
 Visit the website [HERE](https://project-pzoty.vercel.app/)
 
-![image](/project-pzoty-thumbnail)
+![image](/project-pzoty-thumbnail.png)
 
 
