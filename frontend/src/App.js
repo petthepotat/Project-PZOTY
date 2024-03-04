@@ -10,13 +10,8 @@ import SERVER from './constants';
 
 
 function App() {
+  document.title = "School Listings Website";
   const [listings, setListings] = useState([]);
-  const [change, setChange] = useState(false);
-
-  // change website title
-  useEffect(() => {
-    document.title = "School Listings Website";
-  }, []);
 
   // request listings from the backend
   useEffect(() =>  {
@@ -28,12 +23,13 @@ function App() {
         if(data.listings !== undefined) {
           setListings(data["listings"]);
         }
-        console.log(data)
+        // console.log(data);
+        // console.log(listings);
       }
       ).catch((error) => {
         console.log("Error: ", error);
       });
-  }, [change]);
+  }, []);
 
   // load listings into the DOM
 
@@ -65,6 +61,7 @@ function App() {
                 return (
                   <Card>
                     <Listing
+                      id={listing.id}
                       header={listing.header}
                       description={listing.description}
                       image={listing.image}

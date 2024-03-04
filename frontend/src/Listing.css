@@ -6,6 +6,11 @@
     grid-gap: 20px;
 }
 
+.list-image-container {
+    display: inline-block;
+    position: relative;
+}
+
 .listing {
     display: inline-block;
     position: relative;
@@ -24,3 +29,13 @@
     max-width: 200px;
 }
 
+.edit {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    background-color: aliceblue;
+}
+
+.edit:hover {
+    cursor: grab;
+}

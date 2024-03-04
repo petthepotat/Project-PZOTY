@@ -18,8 +18,7 @@ const Upload = (props) => {
     const [name, setName] = useState('');
     const [desc, setDesc] = useState('');
     const [image, setImage] = useState('');
-
-
+    
     const [endpoint, setEndpoint] = useState('');
 
 

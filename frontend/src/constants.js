@@ -1,5 +1,5 @@
-// const SERVER = "http://localhost:3001"
-const SERVER = "https://project-pzoty.onrender.com"
+const SERVER = "http://localhost:3001"
+// const SERVER = "https://project-pzoty.onrender.com"
 
 
 

@@ -10,6 +10,7 @@ import {
 
 import App from './App';
 import Upload from './Upload';
+import Edit from './Edit';
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "upload",
     element: <Upload></Upload>
+  },
+  {
+    path: "edit",
+    element: <Edit></Edit>
   }
 ]);
 

@@ -35,10 +35,11 @@ async function getListings() {
     }
     let listing;
     for (let i = 0; i < result.length; i++) {
-        // console.log(result[i]);
+        console.log(result[i]);
         listing = result[i];
 
         final.listings.push({
+            "id": listing._id,
             "header": listing._title,
             "description": listing._desc,
             "image": listing._image
@@ -113,6 +114,47 @@ app.get("/listings", async (req, res) => {
     }
 });
 
+app.get("/get_entry", async (req, res) => {
+    try {
+        // console.log(req.query);
+        const id = req.query.eid;
+        const result = await sql`SELECT * FROM listings WHERE _id = ${id}`;
+        res.status(200).json([result[0]]);
+
+        console.log("SENT_VALUES: ", result[0])
+    }catch (error) {
+        console.error("Error: ", error);
+        res.status(500).send("Internal server error");
+    };
+})
+
+app.post("/edit", async (req, res) => {
+    try{
+        const eid = req.body[0];
+        const header = req.body[1];
+        const desc = req.body[2];
+        const image = req.body[3];
+
+        console.log("EID: ", eid, "HEADER: ", header, "DESC: ", desc, "IMAGE: ", image)
+        if (image === ''){
+            await sql`UPDATE listings SET _title = ${header}, _desc = ${desc} WHERE _id = ${eid}`;
+            res.send(200, "Entry edited");
+        }
+        else{ 
+            // generate endpoint url and send back to upload image
+            const endpoint = await generateUploadURL();
+            // update the entry with the new link
+            // send response after adding to sql server
+            (await sql`UPDATE listings SET _title = ${header}, _desc = ${desc}, _image = ${endpoint.toString().split("?")[0]} WHERE _id = ${eid}`)
+            res.status(200).json({"endpoint": endpoint});
+        }
+    }catch (error) {
+        console.error("Error: ", error);
+        res.status(500).send("Could not edit entry", req.query.eid);
+    }
+});
+
+
 app.post("/upload", async (req, res) => {
     const endpoint = await generateUploadURL();
     // get size of sql database
@@ -127,8 +169,8 @@ app.post("/upload", async (req, res) => {
         res.status(500).send("SQL failed to update");
         console.error("Error: ", error);
     });
-
 });
+
 
 // start server
 app.listen(PORT, () => {
